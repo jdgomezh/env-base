@@ -18,13 +18,13 @@
 
 {{- $cacheDir := trimPrefix .chezmoi.homeDir .chezmoi.cacheDir -}}
 {{- $cacheDir = trimPrefix "/" $cacheDir -}}
-{{- $envRoot := (dir $realSrc) -}}
+{{- $srcDir := (dir $realSrc) -}}
+{{- $envRoot := (dir $srcDir) -}}
 
-# sourceDir = "{{ $realSrc }}"
+sourceDir = "{{ $realSrc }}"
 
 [data.gk]
+	srcDir				= "{{ $srcDir }}"
 	rootDir				= "{{ $envRoot }}"
 	relativeCacheDir	= "{{ $cacheDir }}"
 	absoluteCacheDir	= "{{ .chezmoi.cacheDir }}"
-	sourceDir			= "{{ $sourceDir }}"
-
