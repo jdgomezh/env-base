@@ -1,6 +1,6 @@
 {{- $realSrc := "" -}}
 
-{{- $src := .chezmoi.config.sourceDir }}
+{{- $src := .chezmoi.sourceDir }}
 {{- if eq .chezmoi.os "windows" -}}
 	{{- $args := list
 		"-NoProfile"
@@ -18,8 +18,8 @@
 
 {{- $cacheDir := trimPrefix .chezmoi.homeDir .chezmoi.cacheDir -}}
 {{- $cacheDir = trimPrefix "/" $cacheDir -}}
-{{- $envRoot := (dir $realSrc) -}}
-{{- $sourceDir := $realSrc -}}
+{{- $envRoot := (dir (dir $realSrc)) -}}
+{{- $sourceDir := (dir $realSrc) -}}
 
 sourceDir = "{{ $sourceDir }}"
 
