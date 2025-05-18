@@ -1,6 +1,6 @@
 {{- $realSrc := "" -}}
 
-{{- $src := .chezmoi.sourceDir }}
+{{- $src := .chezmoi.config.sourceDir }}
 {{- if eq .chezmoi.os "windows" -}}
 	{{- $args := list
 		"-NoProfile"
@@ -27,4 +27,5 @@ sourceDir = "{{ $sourceDir }}"
 	rootDir				= "{{ $envRoot }}"
 	relativeCacheDir	= "{{ $cacheDir }}"
 	absoluteCacheDir	= "{{ .chezmoi.cacheDir }}"
+	sourceDir			= "{{ $sourceDir }}"
 
