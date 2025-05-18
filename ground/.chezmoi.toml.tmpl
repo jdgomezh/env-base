@@ -23,20 +23,8 @@
 
 sourceDir = "{{ $sourceDir }}"
 
-[data]
-	envRoot = "{{ $envRoot }}"
-	cacheDir = "{{ $cacheDir }}"
-
 [data.gk]
 	rootDir				= "{{ $envRoot }}"
 	relativeCacheDir	= "{{ $cacheDir }}"
 	absoluteCacheDir	= "{{ .chezmoi.cacheDir }}"
 
-[data.gk.base]
-	url				= "{{ index $gkBase "url" }}"
-	relativeDir		= "{{ index $gkBase "relativeDir" }}"
-	absoluteDir		= "{{ index $gkBase "absoluteDir" }}"
-	type			= "{{ index $gkBase "type" }}"
-	clone.args		= {{ index $gkBase "cloneArgs" | toJson }}
-	pull.args		= {{ index $gkBase "pullArgs"  | toJson }}
-	refreshPeriod	= "{{ index $gkBase "refreshPeriod" }}"
