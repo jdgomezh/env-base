@@ -21,16 +21,6 @@
 {{- $envRoot := (dir (dir $realSrc)) -}}
 {{- $sourceDir := (dir $realSrc) -}}
 
-{{- $gkBase := dict
-	"url"			printf "git@github.com:jdgomezh/env-base.git"
-	"relativeDir"	".bridge"
-	"absoluteDir"	(joinPath .chezmoi.homeDir ".bridge")
-	"type"			"git-repo"
-	"cloneArgs"		(list "--depth" "1" "--no-tags")
-	"pullArgs"		(list "--rebase" "-X" "theirs" "--prune")
-	"refreshPeriod"	"0s"
- -}}
-
 sourceDir = "{{ $sourceDir }}"
 
 [data]
